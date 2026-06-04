@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLITHER — Multiplayer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Landing ───────────────────────────────────────────── -->
+  <div id="landing">
+    <div class="landing-card">
+      <h1 class="logo">🐍 SLITHER</h1>
+      <p class="tagline">온라인 멀티플레이어</p>
+
+      <input id="nameInput" type="text" placeholder="닉네임을 입력하세요…" maxlength="20" autocomplete="off" autofocus />
+
+      <div class="color-row">
+        <span class="color-label">색상</span>
+        <div id="colorSwatches"></div>
+      </div>
+
+      <button id="playBtn">▶ 시작하기</button>
+
+      <p class="hint-text">마우스로 방향 조종 &nbsp;·&nbsp; 스페이스 / 우클릭 = 부스트</p>
+    </div>
+  </div>
+
+  <!-- ── Game canvas ───────────────────────────────────────── -->
+  <canvas id="canvas"></canvas>
+
+  <!-- ── HUD ──────────────────────────────────────────────── -->
+  <div id="hud" class="hidden">
+
+    <!-- 좌상단: 내 스탯 -->
+    <div id="statsBox">
+      <div class="stat-row" id="statScore">
+        <span class="stat-label">점수</span>
+        <span class="stat-value" id="valScore">0</span>
+      </div>
+      <div class="stat-row" id="statLength">
+        <span class="stat-label">길이</span>
+        <span class="stat-value" id="valLength">20</span>
+      </div>
+      <div class="stat-row" id="statPing">
+        <span class="stat-label">핑</span>
+        <span class="stat-value" id="valPing">--</span>
+      </div>
+      <div class="stat-row" id="statPlayers">
+        <span class="stat-label">플레이어</span>
+        <span class="stat-value" id="valPlayers">--</span>
+      </div>
+    </div>
+
+    <!-- 상단 중앙: 부스트 활성 알림 -->
+    <div id="boostPill">⚡ BOOST</div>
+
+    <!-- 우상단: 랭킹 -->
+    <div id="leaderboard">
+      <div class="lb-title">🏆 실시간 랭킹</div>
+      <ol id="lbList"></ol>
+    </div>
+
+    <!-- 우하단: 미니맵 -->
+    <div id="minimapWrap">
+      <canvas id="minimap" width="160" height="160"></canvas>
+    </div>
+
+    <!-- 하단 중앙: 부스트 게이지 -->
+    <div id="boostBarWrap">
+      <span id="boostBarLabel">MASS</span>
+      <div id="boostBar"><div id="boostFill"></div></div>
+    </div>
+
+    <!-- 하단 중앙: 킬 알림 -->
+    <div id="killNotifs"></div>
+
+  </div>
+
+  <!-- ── Death screen ──────────────────────────────────────── -->
+  <div id="deathScreen" class="hidden">
+    <div class="death-card">
+      <div class="death-icon">💀</div>
+      <h2>사망!</h2>
+      <div id="deathScore"></div>
+      <div id="deathRank"></div>
+      <button id="respawnBtn">다시 시작</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
